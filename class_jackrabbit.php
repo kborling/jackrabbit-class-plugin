@@ -15,9 +15,9 @@ if (!defined('ABSPATH')) {
 class Jackrabbit
 {
   // JackRabbitClass API URL
-  protected $apiUrl = '//app.jackrabbitclass.com/jr3.0/Openings/OpeningsJS?';
+  protected $apiUrl;
   // Incoming
-  protected $data = array();
+  protected $data;
 
   /** Default Constructor */
   public function __construct()
@@ -41,6 +41,9 @@ class Jackrabbit
    */
   public function current_openings($atts)
   {
+    $this->apiUrl = '//app.jackrabbitclass.com/jr3.0/Openings/OpeningsJS?';
+    $this->data = array();
+
     foreach ($atts as $key => $value) {
         $this->data[] = $key.'='.urlencode($value);
     }
@@ -49,11 +52,12 @@ class Jackrabbit
     ob_start();
     ?>
     <!-- JackRabbitClass API Script -->
-    <script src="<?php echo $this->apiUrl ?>"></script>
+    <script type="text/javascript" src="<?php echo $this->apiUrl ?>"></script>
     <div class="jr-no-classes" style="display:none">
       <blockquote>"More classes coming soon!</blockquote>
     </div>
     <?php
+
     return ob_get_clean();
   }
 
