@@ -1,6 +1,4 @@
 # JackRabbitClass
-- **Author:** Borlandia LLC
-- **Email:** Kevin@Borlandiaweb.com
 > Display upcoming classes using JackRabbitClass API.
 
 ### Basic Usage:
